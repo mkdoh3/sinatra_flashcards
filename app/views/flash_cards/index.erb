@@ -1,0 +1,6 @@
+<h1>All Flash Cards</h1>
+<% @flash_cards.each do |card| %>
+  <p>English: <%=card.english%></p>
+  <p>Translation: <%=card.translation%></p>
+  <p>Part of Speech: <%=card.part_of_speech%></p>
+<% end %>
