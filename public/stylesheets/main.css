@@ -14,20 +14,20 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightseagreen;
+    background-color: #5dbbe2;
     color: #333;
-    font-family: Sans-Serif;
-    line-height: 18px;
+    font-family: monospace;
+    line-height: 46px;
   }
 
   .wrapper {
     height: 50%;
-    width: 85%;
-    position: relative;
     background: #feb;
-    margin: 16px auto;
+    margin: 54px auto;
     max-width: 960px;
+    padding: 1.25%;
     padding: 2.25%; /* 18px / 800px */
+    box-shadow: 3px 4px 13px 0px #797777;
   }
 
   h1 {
