@@ -1,0 +1,14 @@
+<div class="cards_wrapper">
+  <h1>A Flash Card!</h1>
+  <div class="card">
+    <div class="content">
+      <div class="front">
+        <p>English: <%=@flash_card.english%></p>
+      </div>
+      <div class="back">
+        <p>Translation: <%=@flash_card.translation%></p>
+      </div>
+    </div>
+  </div>
+  <a href="/flash_cards/<%=@next_flash_card.id%>">Next</a>
+</div>

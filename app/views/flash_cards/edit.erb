@@ -1,0 +1,9 @@
+<h1>Edit Flash Card</h1>
+<form action="/flash_cards/<%=@flash_card.id%>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <label for="english">English Word: </label>
+  <input type="text" name="english" id="enlish" value="<%=@flash_card.english%>">
+  <label for="translation">Spanish Word: </label>
+  <input type="text" name="translation" id="translation" value="<%=@flash_card.translation%>">
+  <input type="submit" value="Update!">
+</form>

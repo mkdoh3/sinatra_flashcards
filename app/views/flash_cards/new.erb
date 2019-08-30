@@ -1,16 +1,13 @@
 <h1>New Flash Card</h1>
 <form action="/flash_cards" method="post">
   <label for="english">English Word: </label>
-  <input type="text" name="english" id="english" placeholder="cat">
+  <input required class="<%='error' if flash[:error]%>" type="text" name="english" id="english" placeholder="<%=flash[:error] || "cat"%>">
   <label for="translation">Translation: </label>
-  <input type="text" name="translation" id="translation" placeholder="gato">
+  <input class="<%='error' if flash[:error]%>" type="text" name="translation" id="translation" placeholder="<%=flash[:error] || "gato"%>">
   <select name="part_of_speech" id="part_of_speech">
     <option value="noun">noun</option>
     <option value="verb">verb</option>
     <option value="adjective">adjective</option>
   </select>
   <input type="submit" value="Create Flash Card">
-  <%if @message%>
-    <p class="flash fade_out"><%=@message%></p>
-  <%end%>
 </form>
