@@ -30,6 +30,7 @@ class FlashCardsController < ApplicationController
         if @flash_card && @flash_card.user_id == session[:user_id]
             erb :'flash_cards/show'
         else 
+            puts 'not your flash card!'
             erb :'flash_cards/new'
         end
     end
@@ -40,12 +41,22 @@ class FlashCardsController < ApplicationController
     end
 
     patch '/flash_cards/:id' do
+        redirect_if_not_logged_in
+        @flash_card = FlashCard.find_by_id(params[:id])
+        if can_edit?(@flash_card)
+            @flash_card.update(english: params[:english], translation: params[:translation])
+            redirect "/flash_cards/#{@flash_card.id}"
+        else
+            redirect "users/#{current_user.id}"
+        end
     end
 
-    delete '/flash_card/:id' do
+    delete '/flash_cards/:id' do
+        redirect_if_not_logged_in
+        @flash_card = FlashCard.find_by_id(params[:id])
+        if can_edit?(@flash_card)
+            @flash_card.destroy
+        end
+        redirect "users/#{current_user.id}"
     end
-
- 
-
-
 end
