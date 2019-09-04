@@ -5,15 +5,17 @@ class FlashCardsController < ApplicationController
     end
 
     get '/flash_cards/new' do
+        redirect_if_not_logged_in
         erb :'flash_cards/new'
     end
 
     post '/flash_cards' do
+        redirect_if_not_logged_in
         if params[:english] != "" && params[:translation] != ""
             @flash_card = FlashCard.create(params)
             @user = User.find_by_id(session[:user_id])
             @flash_card.user = @user
-            @user.flash_cards << @flash_card #this will be updated after we build out sign up / login functionality 
+            @user.flash_cards << @flash_card 
             flash[:success] = "Flash Card Created!" if @flash_card.id
         else
             #just messing around - this could be avoided entirely by setting input = required
@@ -25,10 +27,10 @@ class FlashCardsController < ApplicationController
     get '/flash_cards/:id' do
         @flash_card = FlashCard.find_by_id(params[:id])
         @next_flash_card = FlashCard.find_by("id > ?", @flash_card.id)
-        if @flash_card 
+        if @flash_card && @flash_card.user_id == session[:user_id]
             erb :'flash_cards/show'
         else 
-            erb :'404'
+            erb :'flash_cards/new'
         end
     end
 

@@ -15,4 +15,9 @@
   <%else%>
     <h3>That's it! Create more flash cards <a href="/flash_cards/new">here!</a></h3>
   <%end%>
+  <p><a href="/flash_cards/<%=@flash_card.id%>/edit"><button>Edit</button></a></p>
+  <form action="/flash_cards/<%=@flash_card.id%>" method="post"></form>
+  <input type="hidden" name="_method" value="DELETE">
+  <button type="submit">Delete</button>
+</form>
 </div>

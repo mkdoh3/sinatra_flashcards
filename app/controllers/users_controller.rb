@@ -10,7 +10,7 @@ class UsersController < ApplicationController
           redirect "/users/#{@user.id}"
         else
           #else flash an error and send them back to the signup page
-          flash[:errors] = "#{@user.errors.full_messages.to_sentence}"
+          flash[:error] = "#{@user.errors.full_messages.to_sentence}"
           redirect '/signup'
         end
       end

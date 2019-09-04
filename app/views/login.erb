@@ -1,0 +1,13 @@
+<h2>Log In Below:</h2>
+<form class="" action="/login" method="post">
+  <label for="user_name">User name: </label>
+  <input type="text" name="user_name" value="">
+  <label for="password">Password: </label>
+  <input type="text" name="password" value="">
+  <input type="submit" value="Login">
+</form>
+<%if flash[:error]%>
+  <p><%=flash[:error]%></p>
+  <p>Need to <a href="/signup"> sign up?</a></p>
+<%end%>
+<a href="/">Home</a>
