@@ -1,0 +1,5 @@
+<h2>Welcome <%=@user.user_name%></h2>
+<a href="/flash_cards/new">Create Flash Card</a>
+<%if @flash_card%>
+  <a href="/flash_cards/<%=@flash_card.id%>">Study Up!</a>
+<%end%>

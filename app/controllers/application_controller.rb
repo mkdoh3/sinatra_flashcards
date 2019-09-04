@@ -14,6 +14,7 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
+
   helpers do 
     def logged_in? 
       !!session[:user_id]

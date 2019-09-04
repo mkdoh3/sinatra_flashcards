@@ -1,4 +1,5 @@
-
+User.destroy_all
+FlashCard.destroy_all
 10.times do
     user_name = Faker::Internet.unique.user_name
     email = Faker::Internet.email

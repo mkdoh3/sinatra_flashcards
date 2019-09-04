@@ -10,5 +10,9 @@
       </div>
     </div>
   </div>
-  <a href="/flash_cards/<%=@next_flash_card.id%>">Next</a>
+  <%if @next_flash_card%>
+    <a href="/flash_cards/<%=@next_flash_card.id%>">Next</a>
+  <%else%>
+    <h3>That's it! Create more flash cards <a href="/flash_cards/new">here!</a></h3>
+  <%end%>
 </div>
